@@ -1947,6 +1947,7 @@ by the Platform:
 | _All_ | 200 | Success (only returned in synchronous mode) | No | No |
 | _All_ | 200 with malformed response | Failure | No | No |
 | [Polling Last Operation for Service Instances](#polling-last-operation-for-service-instances) for [Provisioning](#provisioning)/[Deprovisioning](#deprovisioning) | 200 with `"state": "failed"` | Failure | Yes | No |
+| [Polling Last Operation for Service Instances](#polling-last-operation-for-service-instances) for [Updating](#updating-a-service-instance) | 200 with `"state": "failed"` | Failure | No | No |
 | [Polling Last Operation for Service Bindings](#polling-last-operation-for-service-bindings) for [Binding](#binding)/[Unbinding](#unbinding) | 200 with `"state": "failed"` | Failure | No | Yes |
 | _All_ | 201 | Success | No | No |
 | [Provisioning](#provisioning) | 201 with malformed response | Failure | Yes | No |
