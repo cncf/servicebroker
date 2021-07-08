@@ -141,6 +141,9 @@ The following HTTP Headers are defined for the operations detailed in this spec:
 
 \* Headers with an asterisk are REQUIRED.
 
+Additional headers for specific Platforms are detailed in the
+[profile](profile.md#additional-headers) document.
+
 ### API Version Header
 
 Requests from the Platform to the Service Broker MUST contain a header that

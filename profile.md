@@ -15,6 +15,8 @@ or REQUIRED level requirements defined herein.
 - [Notations and Terminology](#notations-and-terminology)
   - [Notational Conventions](#notational-conventions)
   - [Terminology](#terminology)
+- [Additional Headers](#additional-headers)
+  - [Cloud Foundry Info Location Header](#cloud-foundry-info-location-header)
 - [Originating Identity Header](#originating-identity-header)
   - [Cloud Foundry Originating Identity Header](#cloud-foundry-originating-identity-header)
   - [Kubernetes Originating Identity Header](#kubernetes-originating-identity-header)
@@ -41,6 +43,38 @@ be interpreted as described in [RFC 2119]( https://tools.ietf.org/html/rfc2119).
 
 Please refer to terminology defined by the
 [Open Service Broker API specification](spec.md#terminology).
+
+
+## Additional Headers
+
+### Cloud Foundry Info Location Header
+
+The `X-API-Info-Location` header is used to provide Service Brokers with an
+endpoint that can be used to fetch information about the specific Cloud Foundry
+deployment from which the request originated.
+
+The header consists of a `value` string, where the `value` is a Base64 encoded
+serialized JSON object.
+
+The following properties MUST appear within the JSON encoded `value`:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| info_location_url | string | The URL of an endpoint that can be used to fetch information about the Cloud Foundry deployment from which the request originated. |
+
+Platforms MAY include additional properties.
+
+For example, a `value` of:
+```json
+{
+  "info_location_url": "https://api.platform.example.com/v2/info"
+}
+```
+would appear in the HTTP Header as:
+```
+X-API-Info-Location: ewogICJpbmZvX2xvY2F0aW9uX3VybCI6ICJodHRwczovL2FwaS5wbGF0Zm9ybS5leGFtcGxlLmNvbS92Mi9pbmZvIgp9
+```
+
 
 ## Originating Identity Header
 
